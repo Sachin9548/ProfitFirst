@@ -46,24 +46,36 @@ const analyticsData = [
 
 const ProfitAnalyticsSection = () => {
   return (
+    <>
+      <div className="max-w-6xl mx-auto text-center text-white">
+        <h2 className="text-4xl font-bold mb-4">
+          Say goodbye to login multiple platforms 
+          <br />
+          <span className="my-gradient-text font-bold">everytime</span>
+        </h2>
+        <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
+          D2C brands owners always check multiple platforms to see the Data
+          <br /> but not from now
+        </p>
+      </div>
     <section className="py-0 px-0 text-white">
       <div className="max-w-6xl mx-auto">
         {analyticsData.map((item, index) => (
           <div
             key={index}
-            className="grid lg:grid-cols-2 gap-0 items-center"
+            className="grid lg:grid-cols-2 gap-12 items-center"
           >
             {index % 2 === 0 ? (
               <>
                 {/* Icon/Image Column */}
-                <div className="flex justify-center">
+                <div className="flex justify-center ">
                   <div>
-                    <img className="block" src={item.icon} alt="" />
+                    <img className="block rounded-xl" src={item.icon} alt="" />
                   </div>
                 </div>
                 {/* Text Content Column */}
                 <div>
-                  <div className="flex items-center gap-2 m-0">
+                  <div className="flex items-center gap-12 m-0">
                     <span className="font-medium text-[#13ef96] m-0">
                       {item.title}
                     </span>
@@ -104,6 +116,7 @@ const ProfitAnalyticsSection = () => {
         ))}
       </div>
     </section>
+    </>
   );
 };
 

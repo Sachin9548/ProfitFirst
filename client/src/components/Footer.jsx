@@ -2,6 +2,7 @@ import React from 'react';
 // Optionally, use an icon for "All systems normal" from react-icons (npm install react-icons)
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import Logo from '../assets/Logo1.png';
+import {Link} from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -120,9 +121,12 @@ const Footer = () => {
               </div>
 
               {/* CTA Button */}
-              <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">
+              {/* <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">
                 Get Started
-              </button>
+              </button> */}
+              <Link to="/Contact" className="btn-professional">
+                <span>Get Started</span>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
+import Dashboard from "../assets/Dashboard.jpg";
 const Herosection = () => {
   return (
     <>
@@ -54,9 +55,9 @@ const Herosection = () => {
 
       {/* Buttons */}
       <div class="flex space-x-4 mt-9">
-  <button class="btn-professional">
+  <Link to="/Contact" className="btn-professional">
     <span>Start your free trial</span>
-  </button>
+  </Link>
 </div>
 
 
@@ -64,7 +65,8 @@ const Herosection = () => {
     <section id="DASHBOARD" className="relative w-full min-h-screen flex flex-col items-center justify-center
                   text-white pt-12 pb-12 px-4">
       <div className=" pl-32 pr-32">
-        <img src="https://framerusercontent.com/images/SFaVEcCdEWvi55mMBfU7DGprdQ.png" alt="Heroimg" />
+        {/* <img src="https://framerusercontent.com/images/SFaVEcCdEWvi55mMBfU7DGprdQ.png" alt="Heroimg" /> */}
+        <img src={Dashboard} alt="Heroimg" />
      </div>
     </section>
     </>

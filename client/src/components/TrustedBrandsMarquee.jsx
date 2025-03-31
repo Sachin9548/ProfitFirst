@@ -1,16 +1,16 @@
 import React from "react";
-import Logo1 from "../assets/Logo1.png";
-import Logo2 from "../assets/Logo1.png";
-import Logo3 from "../assets/Logo1.png";
-import Logo4 from "../assets/Logo1.png";
-import Logo5 from "../assets/Logo1.png";
+import Logo2 from "../assets/Logo2.png";
+import Logo3 from "../assets/Logo3.png";
+import Logo4 from "../assets/Logo4.svg";
+import Logo5 from "../assets/Logo5.png";
+import Logo6 from "../assets/Logo6.png";
 const TrustedBrandsMarquee = () => {
   const logos = [
-    Logo1,
     Logo2,
     Logo3,
     Logo4,
     Logo5,
+    Logo6,
   ];
 
   // Duplicate the logos for seamless loop
@@ -29,7 +29,7 @@ const TrustedBrandsMarquee = () => {
               key={index}
               src={logo}
               alt={`Brand ${index + 1}`}
-              className="h-32 mx-8 object-contain grayscale hover:grayscale-0 transition duration-300"
+              className="h-12 w-24 mx-8 mt-2 object-contain grayscale hover:grayscale-0 transition duration-300"
             />
           ))}
         </div>

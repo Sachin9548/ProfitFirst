@@ -47,10 +47,10 @@ const RetentionAnalyticsSection = () => {
             Calculate Customer <strong className="text-[#13ef96] font-medium">Lifetime value</strong> automatically. 
             Monitor and Improve your sales and customers cohorts.
           </p>
-
+{/* 
           <button className="bg-white text-black px-6 py-2 rounded-full font-medium hover:opacity-90 transition">
             Learn more →
-          </button>
+          </button> */}
 
           {/* Features */}
           <div className="mt-10 grid sm:grid-cols-2 gap-6">

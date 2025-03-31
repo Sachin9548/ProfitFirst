@@ -4,12 +4,11 @@ import Footer from "../components/Footer";
 import Herosection from "../components/Herosection";
 import Navbar from "../components/Navbar";
 import Pricing from "../components/Pricing";
-import ProfitAnalyticsSection from "../components/ProfitAnalyticsSection";
 import RetentionAnalyticsSection from "../components/RetentionAnalyticsSection";
-import SDKIntegrationsSection from "../components/SDKIntegrationsSection";
-import SolutionsSection from "../components/SolutionsSection";
+import FlowSection from "../components/FlowSection";
 import TrustedBrandsMarquee from "../components/TrustedBrandsMarquee";
-
+import Intigration from "../components/Intigration";
+import ProfitAnalyticsSection from "../components/ProfitAnalyticsSection";
 const Homepage = () => {
     return (
         // <div className="bg-[linear-gradient(135deg,#33C375,#002726)]">
@@ -19,11 +18,12 @@ const Homepage = () => {
         <Navbar />
         <Herosection/>
         <TrustedBrandsMarquee/>
-        <SDKIntegrationsSection/>
-        <SolutionsSection/>
+        <FlowSection/>
+        <Intigration/>
+        {/* <SolutionsSection/> */}
         <ProfitAnalyticsSection/>
         <RetentionAnalyticsSection/>
-        <Blogsection/>
+        <Blogsection/> 
         <Pricing/>
         <FAQ/>
         <Footer/>
