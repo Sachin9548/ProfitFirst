@@ -61,3 +61,10 @@ body{
   .btn-professional:hover span {
     color: #ffffff;
   }
+
+  @media only screen and (min-width: 1024px) {
+
+  .responsivelayout{
+      width: 60% !important;
+  }
+}

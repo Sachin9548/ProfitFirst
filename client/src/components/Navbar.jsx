@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../assets/Logo1.png";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -33,15 +33,15 @@ const Navbar = () => {
     <nav
       className={`${
         showNavbar ? "translate-y-0" : "-translate-y-full"
-      } fixed top-0 left-0 w-full flex items-center justify-between px-4 py-4 bg-transparent 
-      transition-transform duration-300 z-50`}
-     style={{padding: "2px 10%", }}>
-      {/* Left side: Dummy Logo */}
-      <div className="text-white font-bold text-xl">
-        <img src={Logo} alt="" width={150}/>
+      } fixed top-0 left-0 w-full flex items-center justify-center md:justify-between px-4 py-4 bg-transparent transition-transform duration-300 z-50`}
+      style={{ padding: "2px 10%" }}
+    >
+      {/* Logo always visible and centered on mobile */}
+      <div className="flex-shrink-0">
+        <img src={Logo} alt="Logo" width={150} />
       </div>
 
-      {/* Center: Navigation Links */}
+      {/* Desktop Navigation Links */}
       <ul className="hidden md:flex space-x-6 text-[#999] gap-6">
         <li>
           <Link to={"/"} className="hover:text-green-500">
@@ -70,15 +70,14 @@ const Navbar = () => {
         </li>
       </ul>
 
-      {/* Right side: Sign Up Button */}
-      <div>
-
-        <Link to="/Contact" className="bg-green-500 text-white px-4 py-2 hover:bg-gray-900 transition rounded-lg">
-        Get Started
-        </Link>
-        {/* <button className="bg-green-500 text-white px-4 py-2 hover:bg-gray-900 transition rounded-lg">
+      {/* Desktop Get Started Button */}
+      <div className="hidden md:block">
+        <Link
+          to="/Contact"
+          className="bg-green-500 text-white px-4 py-2 hover:bg-gray-900 transition rounded-lg"
+        >
           Get Started
-        </button> */}
+        </Link>
       </div>
     </nav>
   );

@@ -12,12 +12,12 @@ const FlowSection = () => {
         Profit first will help you to figure out everything in your E com business
       </p>
       <div className="p-2 m-0 flex flex-col justify-center items-center">
-       <video className="" autoPlay loop muted style={{width:"60%"}}>
+       <video className="w-96 md:w-96 lg:w-96 responsivelayout" autoPlay loop muted>
         <source src={gif} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       {/* <img width={"800px"} src={ProfitFirst} alt="flow image " /> */}
-      </div>
+      </div> 
       
     </section>    
   );

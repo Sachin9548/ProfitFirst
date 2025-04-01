@@ -39,16 +39,15 @@ const Blogsection = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
 
   return (
-    <section id='BLOG' className="py-12 px-12 text-white">
+    <section id='BLOG' className="py-12 px-2 md:px-12 text-white">
       <div className="container mx-auto px-4">
         {/* Section Heading */}
         <h2 className="text-4xl font-bold md:text-4xl text-center mb-4">
-        Stay Connected on our  
-        <span className='my-gradient-text'> Newsletter</span>
+          Stay Connected on our  
+          <span className='my-gradient-text'> Newsletter</span>
         </h2>
         <p className="text-center text-gray-400 max-w-2xl mx-auto mb-8">
-        You’ll get lot to know that how profit first can help you to scale your D2C brand and how other’s KPI’s work.
-
+          You’ll get lot to know that how profit first can help you to scale your D2C brand and how other’s KPI’s work.
         </p>
 
         {/* Explore Content Button */}
@@ -63,7 +62,7 @@ const Blogsection = () => {
           {blogs.map((blog) => (
             <div
               key={blog.id}
-              className="bg-[#161616] rounded-lg shadow hover:shadow-lg transition flex flex-col align-center p-6 mx-auto" style={{width: '85%'}}
+              className="bg-[#161616] rounded-lg shadow hover:shadow-lg transition flex flex-col p-6 mx-auto w-full md:w-[85%]"
             > 
               {/* Image + Category Badge */}
               <div className="relative">
@@ -121,7 +120,7 @@ const Blogsection = () => {
               alt={selectedBlog.title}
               className="w-full p-4 h-60 object-cover rounded-t-lg" />
             <h3 className="text-sm text-green-500 font-semibold mt-2">
-                {selectedBlog.category}
+              {selectedBlog.category}
             </h3>
             <p className="text-sm text-gray-400 mt-1">
               By {selectedBlog.author} | {selectedBlog.date}

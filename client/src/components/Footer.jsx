@@ -2,23 +2,22 @@ import React from 'react';
 // Optionally, use an icon for "All systems normal" from react-icons (npm install react-icons)
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import Logo from '../assets/Logo1.png';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer id='FOOTER' className=" text-white py-10 px-12">
-      <div className="container mx-auto px-4">
+    <footer id="FOOTER" className="text-white py-10 px-12">
+      <div className="container mx-auto px-4 text-center md:text-left">
         {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-around items-start">
+        <div className="flex flex-col md:flex-row justify-around items-center md:items-start">
           {/* Logo and Brand */}
           <div className="mb-8 md:mb-0">
-            {/* Replace src with your logo image URL or <svg> */}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 justify-center md:justify-start">
               <img
                 src={Logo}
                 alt="Profit First Logo"
-                className=" object-cover"
-                style={{height: '200px' }}
+                className="object-cover"
+                style={{ height: '200px' }}
               />
             </div>
             {/* Optional tagline or short description */}
@@ -65,8 +64,6 @@ const Footer = () => {
                     Blog
                   </a>
                 </li>
-                
-               
               </ul>
             </div>
 
@@ -91,12 +88,10 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="mailto:profitfirstoffice@gmail.com
-"
+                    href="mailto:profitfirstoffice@gmail.com"
                     className="hover:text-white transition"
                   >
                     profitfirstoffice@gmail.com
-
                   </a>
                 </li>
               </ul>
@@ -121,9 +116,6 @@ const Footer = () => {
               </div>
 
               {/* CTA Button */}
-              {/* <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">
-                Get Started
-              </button> */}
               <Link to="/Contact" className="btn-professional">
                 <span>Get Started</span>
               </Link>

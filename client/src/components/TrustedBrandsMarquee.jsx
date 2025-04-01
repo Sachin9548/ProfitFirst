@@ -17,7 +17,7 @@ const TrustedBrandsMarquee = () => {
   const loopLogos = [...logos, ...logos];
 
   return (
-    <div  className="py-10 overflow-hidden relative">
+    <div  className="py-10 px-2 overflow-hidden relative">
       <h2 className="text-white text-center text-4xl font-bold mb-6">
         Trusted by <span className="my-gradient-text font-bold ">1000+ D2C brands</span>
       </h2>

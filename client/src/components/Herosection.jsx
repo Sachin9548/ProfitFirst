@@ -62,13 +62,17 @@ const Herosection = () => {
 
 
     </section>
-    <section id="DASHBOARD" className="relative w-full min-h-screen flex flex-col items-center justify-center
-                  text-white pt-12 pb-12 px-4">
-      <div className=" pl-32 pr-32">
-        {/* <img src="https://framerusercontent.com/images/SFaVEcCdEWvi55mMBfU7DGprdQ.png" alt="Heroimg" /> */}
-        <img src={Dashboard} alt="Heroimg" />
-     </div>
-    </section>
+
+
+    <section
+  id="DASHBOARD"
+  className="relative text-white pt-0 pb-0 px-2 rounded md:pt-12 md:pb-12 md:px-4"
+>
+  <div className="w-full px-0 md:px-32">
+    <img src={Dashboard} alt="Heroimg" className="w-full" />
+  </div>
+</section>
+
     </>
   );
 };
