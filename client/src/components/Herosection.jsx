@@ -38,20 +38,18 @@ const Herosection = () => {
       </p>
 
       {/* Video Thumbnail (Placeholder) */}
-      <div className="relative w-full max-w-xl h-72 mb-6">
+      {/* <div className="relative w-full max-w-xl h-72 mb-6">
         <img
-          // Replace with the thumbnail image you want
           src="https://i.ytimg.com/vi_webp/uLnk3lG3WZo/maxresdefault.webp"
           alt="Video Thumbnail"
           className="w-full h-full object-cover rounded"
         />
-        {/* Optional: A play button overlay */}
         <div className="absolute inset-0 flex items-center justify-center">
           <button className="bg-white text-black rounded-full p-3 hover:opacity-80">
             ▶
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* Buttons */}
       <div class="flex space-x-4 mt-9">

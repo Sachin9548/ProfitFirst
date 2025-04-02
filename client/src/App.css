@@ -68,3 +68,10 @@ body{
       width: 60% !important;
   }
 }
+
+.powerfull{
+  z-index: 50 !important;
+}
+.powerfull2{
+  z-index: 80 !important;
+}

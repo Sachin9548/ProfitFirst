@@ -4,22 +4,18 @@ import Logo3 from "../assets/Logo3.png";
 import Logo4 from "../assets/Logo4.svg";
 import Logo5 from "../assets/Logo5.png";
 import Logo6 from "../assets/Logo6.png";
+
 const TrustedBrandsMarquee = () => {
-  const logos = [
-    Logo2,
-    Logo3,
-    Logo4,
-    Logo5,
-    Logo6,
-  ];
+  const logos = [Logo2, Logo3, Logo4, Logo5, Logo6];
 
   // Duplicate the logos for seamless loop
   const loopLogos = [...logos, ...logos];
 
   return (
-    <div  className="py-10 px-2 overflow-hidden relative">
+    <div className="py-10 px-2 overflow-hidden relative">
       <h2 className="text-white text-center text-4xl font-bold mb-6">
-        Trusted by <span className="my-gradient-text font-bold ">1000+ D2C brands</span>
+        Trusted by{" "}
+        <span className="my-gradient-text font-bold">1000+ D2C brands</span>
       </h2>
 
       <div className="w-full overflow-hidden">
@@ -47,6 +43,13 @@ const TrustedBrandsMarquee = () => {
           }
           100% {
             transform: translateX(-50%);
+          }
+        }
+
+        /* Faster animation on mobile */
+        @media (max-width: 768px) {
+          .marquee {
+            animation-duration: 15s;
           }
         }
       `}</style>

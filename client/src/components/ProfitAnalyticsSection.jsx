@@ -1,18 +1,20 @@
 import React from "react";
 import contact from "../assets/contact.jpg";
+import Gross from "../assets/Gross.png";
+import Sales from "../assets/Sales.png";
 
 const analyticsData = [
   {
     title: "Gross Profit",
     description:
       "Whether you’re a manufacturer or trader you need to know your gross profit, say goodbye to pen and paper and say welcome to Profit First, where you have to mention your product manufacturing cost (COGS) one time only, and you get gross margin details in the Dashboard everytime.",
-    icon: contact,
+    icon: Gross,
   },
   {
     title: "Net Profit",
     description:
       "Getting an excellent ROAS but still not making any profit? Then you need a Profit First net margin calculator dashboard that gives real time data on whether you’re making money or just burning it.",
-    icon: contact,
+    icon: Sales,
   },
   {
     title: "Cohort Analysis",
