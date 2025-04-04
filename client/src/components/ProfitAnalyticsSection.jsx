@@ -2,38 +2,44 @@ import React from "react";
 import contact from "../assets/contact.jpg";
 import Gross from "../assets/Gross.png";
 import Sales from "../assets/Sales.png";
+import CohortGraph from "../assets/CohortGraph.png";
+import ShippingGraph from "../assets/ShippingGraph.png";
+import MarketingGraph from "../assets/MarketingGraph.png";
 
 const analyticsData = [
   {
     title: "Gross Profit",
     description:
       "Whether you’re a manufacturer or trader you need to know your gross profit, say goodbye to pen and paper and say welcome to Profit First, where you have to mention your product manufacturing cost (COGS) one time only, and you get gross margin details in the Dashboard everytime.",
-    icon: Gross,
+      icon: Gross,
+
   },
   {
     title: "Net Profit",
     description:
       "Getting an excellent ROAS but still not making any profit? Then you need a Profit First net margin calculator dashboard that gives real time data on whether you’re making money or just burning it.",
-    icon: Sales,
+      icon: Sales,
+
   },
   {
     title: "Cohort Analysis",
     description:
       "We don’t need to talk about how important cohort analysis is. Whether you want to know about customer LTV or product LTV, Profit First dashboard provides the effective data to help shape your future strategy.",
-    icon: contact,
+      icon: CohortGraph,
+
   },
   {
     title: "Marketing",
     description:
       "You don't need to check the Meta Ads Manager every time – get data within the Profit First marketing dashboard, from CTR to ROAS, and insights on each campaign.",
-    icon: contact,
+    icon: MarketingGraph,
   },
   {
     title: "Shipping",
     description:
       "If you’re selling products online then you must know your shipping metrics – from RTO to delivered and in-transit orders. Profit First shipping dashboard covers all this crucial data.",
-    icon:
-      "https://framerusercontent.com/images/GKlRsYosTcwNA1hS8Wf21RY3M.png?scale-down-to=512",
+      icon: ShippingGraph,
+
   },
   {
     title: "Optimize Acquisition",
@@ -107,7 +113,7 @@ const ProfitAnalyticsSection = () => {
                   {/* Icon/Image Column */}
                   <div className="flex justify-center">
                     <div>
-                      <img className="block" src={item.icon} alt={item.title} />
+                      <img className="block rounded-xl" src={item.icon} alt={item.title} />
                     </div>
                   </div>
                 </>
