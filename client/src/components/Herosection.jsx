@@ -53,7 +53,7 @@ const Herosection = () => {
 
       {/* Buttons */}
       <div class="flex space-x-4 mt-9">
-  <Link to="/Contact" className="btn-professional">
+  <Link to="/Signup" className="btn-professional">
     <span>Start your free trial</span>
   </Link>
 </div>

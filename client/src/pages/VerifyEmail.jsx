@@ -1,0 +1,71 @@
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Logo from "../assets/Logo1.png";
+
+const maskEmail = (email) => {
+  const [user, domain] = email.split("@");
+  return `${user[0]}*****@${domain}`;
+};
+
+const VerifyEmail = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { token } = useParams();
+  const [status, setStatus] = useState("loading");
+
+  const maskedEmail = location.state?.email ? maskEmail(location.state.email) : "your email";
+
+  useEffect(() => {
+    const verify = async () => {
+      if (token) {
+        try {
+          await axios.get(`${import.meta.env.VITE_API_URL}/auth/verify-email/${token}`);
+          setStatus("success");
+          setTimeout(() => navigate("/login"), 3000);
+        } catch (err) {
+          setStatus("error");
+        }
+      } else {
+        setStatus("waiting");
+      }
+    };
+    verify();
+  }, [token, navigate]);
+
+  return (
+    <div className="min-h-screen flex items-center justify-center" style={{
+      background: 'linear-gradient(to bottom, rgb(0, 40, 38), rgb(0, 85, 58))',
+    }}>
+      <div className="bg-[#0f1e1c] rounded-3xl p-10 text-center shadow-lg w-2xl">
+        <img src={Logo} alt="Logo" className="mx-auto h-64 mb-6" />
+        
+        {status === "waiting" && (
+          <>
+            <h2 className="text-white text-2xl font-bold mb-2">Verify your email</h2>
+            <p className="text-gray-300">
+              We've sent a verification email to <span className="text-green-400">{maskedEmail}</span>.<br />
+              Please check your inbox and click the link to verify.
+            </p>
+          </>
+        )}
+
+        {status === "success" && (
+          <>
+            <h2 className="text-green-400 text-2xl font-bold mb-2">Email Verified!</h2>
+            <p className="text-gray-300">Redirecting you to login...</p>
+          </>
+        )}
+
+        {status === "error" && (
+          <>
+            <h2 className="text-red-500 text-2xl font-bold mb-2">Verification Failed</h2>
+            <p className="text-gray-300">The verification link is invalid or expired.</p>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default VerifyEmail;

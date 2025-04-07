@@ -98,7 +98,7 @@ const Navbar = () => {
           <button onClick={toggleDrawer} aria-label="Toggle Menu">
             {drawerOpen ? (
               <svg
-                className="w-6 h-6 text-white"
+                className="w-6 h-6 text-white absolute bottom-0 right-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -114,6 +114,7 @@ const Navbar = () => {
             ) : (
               <svg
                 className="w-6 h-6 text-white"
+                
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
