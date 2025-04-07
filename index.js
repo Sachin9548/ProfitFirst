@@ -21,8 +21,6 @@ app.get('/', (req, res) => {
 });
 
 
-
-
 app.use("/api",mainroute ); 
 
 app.listen(port, () => {

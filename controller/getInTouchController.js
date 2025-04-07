@@ -1,6 +1,6 @@
-const GetInTouch = require("../model/getInTouch");
+const GetInTouch =  require("../model/getInTouch");
 
-const getInTouchController =(req,res)=>{
+const getInTouchController = async (req,res)=>{
     const {name,email,message,phone}=req.body;
 
     if(!name || !email || !message || !phone){
@@ -10,7 +10,7 @@ const getInTouchController =(req,res)=>{
         const getInTouch = new GetInTouch({
             name,email,message,phone
         });
-        getInTouch.save();
+        await getInTouch.save();
         return res.status(200).json({message:"We will get back to you soon"});
     } catch (error) {
         console.log(error);
