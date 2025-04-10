@@ -9,14 +9,14 @@ const Navbar = () => {
 
   // Function to control navbar visibility based on scroll direction
   const controlNavbar = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
-        setShowNavbar(false);
-      } else {
-        setShowNavbar(true);
-      }
-      setLastScrollY(window.scrollY);
-    }
+    // if (typeof window !== "undefined") {
+    //   if (window.scrollY > lastScrollY) {
+    //     setShowNavbar(false);
+    //   } else {
+    //     setShowNavbar(true);
+    //   }
+    //   setLastScrollY(window.scrollY);
+    // }
   };
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Navbar = () => {
         className={`${
           // Force navbar to remain visible when drawer is open
           drawerOpen || showNavbar ? "translate-y-0" : "-translate-y-full"
-        } fixed top-0 left-0 w-full flex items-center justify-between px-4 py-4 bg-transparent transition-transform duration-300 z-50`}
+        } fixed top-0 left-0 w-full flex items-center justify-between px-4 py-4 transition-transform duration-300 z-50 backdrop-blur-3xl`}
         style={{ padding: "2px 10%" }}
       >
         {/* Logo aligned to left in mobile view; hide on mobile when drawer is open */}

@@ -61,13 +61,23 @@ const signupController = async (req,res)=>{
 }
 
 const varifyemail = async (req, res) => {
-    try {
-        const decoded = jwt.verify(req.params.token, process.env.JWT_SECRET);
-        await User.findByIdAndUpdate(decoded.id, { isVerified: true });
-        return res.status.json({message:"Email verified. You can now log in."});
-      } catch (err) {
-        res.status(400).json({message:"Invalid or expired verification link."});
-      }
+  console.log("requiest come here ");
+  try {
+    const decoded = jwt.verify(req.params.token, process.env.JWT_SECRET);
+    const user = await User.findByIdAndUpdate(decoded.id, { isVerified: true });
+    console.log("Decoded token:", decoded);
+    console.log("User updated:", user);
+
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    return res.status(200).json({ message: "Email verified. You can now log in." });
+  } catch (err) {
+    console.error("Verification error:", err);
+    res.status(400).json({ message: "Invalid or expired verification link." });
+  }
 }
 
 module.exports = {signupController, varifyemail};

@@ -41,19 +41,13 @@ const analyticsData = [
       icon: ShippingGraph,
 
   },
-  {
-    title: "Optimize Acquisition",
-    description:
-      "Create powerful audiences in Meta and promote the right products to maximize your LTV:CAC ratio.",
-    icon:
-      "https://framerusercontent.com/images/GKlRsYosTcwNA1hS8Wf21RY3M.png?scale-down-to=512",
-  },
+ 
 ];
 
 const ProfitAnalyticsSection = () => {
   return (
     <>
-      <div className="max-w-6xl mx-auto text-center text-white">
+      <div className="max-w-6xl mx-auto text-center text-white" id="USECASES">
         <h2 className="text-4xl font-bold mb-4">
           Say goodbye to login multiple platforms 
           <br />

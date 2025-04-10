@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import Herosection from "../components/Herosection";
 import Navbar from "../components/Navbar";
 import Pricing from "../components/Pricing";
-import RetentionAnalyticsSection from "../components/RetentionAnalyticsSection";
 import FlowSection from "../components/FlowSection";
 import TrustedBrandsMarquee from "../components/TrustedBrandsMarquee";
 import Intigration from "../components/Intigration";
@@ -20,9 +19,7 @@ const Homepage = () => {
         <TrustedBrandsMarquee/>
         <FlowSection/>
         <Intigration/>
-        {/* <SolutionsSection/> */}
         <ProfitAnalyticsSection/>
-        <RetentionAnalyticsSection/>
         <Blogsection/> 
         <Pricing/>
         <FAQ/>

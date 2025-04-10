@@ -149,10 +149,11 @@ const Contactus = () => {
               ></textarea>
               <button
                 type="submit"
-                className="w-full py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition"
+                className=" w-full py-3 font-bold rounded-lg transition btn-professional"
                 disabled={isLoading}
               >
-                {isLoading ? "Sending..." : "Done!"}
+                <span> {isLoading ? "Sending..." : "Done!"}</span>
+               
               </button>
             </form>
           </div>

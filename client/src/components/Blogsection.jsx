@@ -113,7 +113,6 @@ const Blogsection = () => {
             >
               &times;
             </button>
-
             {/* Modal Content */}
             <img
               src={selectedBlog.image}

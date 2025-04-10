@@ -52,14 +52,12 @@ const SignUp = () => {
       } else {
         toast.error("Signup failed. Please try again.");
       }
-      setTimeout(() => {
-        navigate("/verify-email", { state: { email: formData.email } });
-      }, 3000);
-
+      navigate("/verify-email", { state: { email: formData.email } });
+  
       // Handle successful signup (e.g., redirect, show message)
     } catch (error) {
       toast.error("Signup failed. Please try again.");
-      console.error("Signup error:", error);
+      console.log("Signup error: 5000");
     }
   };
   return (

@@ -29,12 +29,10 @@ const Login = () => {
       if(response.status === 200) {
         localStorage.setItem("token", response.data.token); // Store token in local storage
         toast.success("Login successful!");
+        navigate("/onboarding"); 
       } else {
         toast.error("Login failed. Please try again.");
       }
-      setTimeout(() => {
-        navigate("/onboarding"); // or your main page
-      }, 2000);
     } catch (err) {
       toast.error(err.response?.data?.message || "Login failed.");
     }

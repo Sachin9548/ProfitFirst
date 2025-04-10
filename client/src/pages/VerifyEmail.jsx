@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import Logo from "../assets/Logo1.png";
+import axiosInstance from "../../axios";
 
 const maskEmail = (email) => {
   const [user, domain] = email.split("@");
@@ -20,7 +20,7 @@ const VerifyEmail = () => {
     const verify = async () => {
       if (token) {
         try {
-          await axios.get(`${import.meta.env.VITE_API_URL}/auth/verify-email/${token}`);
+          await axiosInstance.get(`/auth/verify-email/${token}`);
           setStatus("success");
           setTimeout(() => navigate("/login"), 3000);
         } catch (err) {
@@ -47,6 +47,11 @@ const VerifyEmail = () => {
               We've sent a verification email to <span className="text-green-400">{maskedEmail}</span>.<br />
               Please check your inbox and click the link to verify.
             </p>
+            {/* link for login  */}
+            <Link to="/login" className="text-green-500 mt-4 block">
+              Go to Login
+            </Link>
+          
           </>
         )}
 
