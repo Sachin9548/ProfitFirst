@@ -13,6 +13,7 @@ const Step1 = ({ onComplete }) => {
     industry: "",
     referral: "",
   });
+const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,15 +21,26 @@ const Step1 = ({ onComplete }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
     try {
       await axiosInstance.post("/onboard/step1", form);
       toast.success("Step 1 completed successfully!");
       onComplete(); // only go next on success
+      setLoading(false); // Stop loading
     } catch (err) {
       toast.error("Failed to complete Step 1. Please try again.");
       console.error("Submission error:", err);
+      setLoading(false); // Stop loading even on error
     }
   };
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-[#0D1D1E]">
+        <PulseLoader size={60} color="#12EB8E" />
+        {/* <ClipLoader size={60} color="#4f46e5" /> */}
+      </div>
+    );
+  }
 
   return (
     <div

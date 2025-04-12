@@ -4,7 +4,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axiosInstance from "../../axios";
 import { useNavigate } from "react-router-dom";
-
+import { PulseLoader } from "react-spinners";
+import {set} from "mongoose";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ const SignUp = () => {
   });
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
+
 
   const handleChange = (e) => {
     const { id, value, type, checked } = e.target;
@@ -28,6 +31,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.password || !formData.rePassword) {
       toast.error("Please fill in all fields.");
       return;
@@ -49,8 +53,10 @@ const SignUp = () => {
       });
       if (response.status === 200) {
         toast.success("Signup successful! Please check your email for verification.");
+        setLoading(false);
       } else {
         toast.error("Signup failed. Please try again.");
+        setLoading(false);
       }
       navigate("/verify-email", { state: { email: formData.email } });
   
@@ -58,8 +64,18 @@ const SignUp = () => {
     } catch (error) {
       toast.error("Signup failed. Please try again.");
       console.log("Signup error: 5000");
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-[#0D1D1E]">
+        <PulseLoader size={60} color="#12EB8E" />
+        {/* <ClipLoader size={60} color="#4f46e5" /> */}
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col md:flex-row h-full md:h-screen">
       <ToastContainer position="top-right" autoClose={3000} />

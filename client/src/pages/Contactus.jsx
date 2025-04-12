@@ -3,6 +3,7 @@ import axiosInstance from "../../axios";
 import contact from "../assets/contact.jpg";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { PulseLoader } from "react-spinners";
 
 const Contactus = () => {
   const [formData, setFormData] = useState({
@@ -64,6 +65,15 @@ const Contactus = () => {
   const handleBack = () => {
     window.history.back();
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-[#0D1D1E]">
+        <PulseLoader size={60} color="#12EB8E" />
+        {/* <ClipLoader size={60} color="#4f46e5" /> */}
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen bg-[#101218] flex flex-col">

@@ -4,11 +4,15 @@ import axiosInstance from "../../axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logo from "../assets/Logo1.png";
+import { PulseLoader } from "react-spinners";
+
 
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // start as true
+
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -17,6 +21,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true when form is submitted
     const { email, password } = formData;
 
     if (!email || !password) {
@@ -29,14 +34,26 @@ const Login = () => {
       if(response.status === 200) {
         localStorage.setItem("token", response.data.token); // Store token in local storage
         toast.success("Login successful!");
+        setLoading(false); // Set loading to false after successful login
         navigate("/onboarding"); 
       } else {
         toast.error("Login failed. Please try again.");
+        setLoading(false); // Set loading to false if login fails
       }
     } catch (err) {
       toast.error(err.response?.data?.message || "Login failed.");
+      setLoading(false); // Set loading to false if there's an error
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-[#0D1D1E]">
+        <PulseLoader size={60} color="#4f46e5" />
+        {/* <ClipLoader size={60} color="#4f46e5" /> */}
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen text-white">

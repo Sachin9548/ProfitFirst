@@ -4,6 +4,7 @@ import { PulseLoader } from "react-spinners";
 import Step1 from "../components/Step1";
 import Step2 from "../components/Step2"; 
 import Step3 from "../components/Step3";
+import Step4 from "../components/Step4";
 
 const Onboarding = () => {
   const [loading, setLoading] = useState(true); // start as true
@@ -40,6 +41,7 @@ const Onboarding = () => {
       {currentStep === 1 && <Step1 onComplete={handleStepComplete} />}
       {currentStep === 2 && <Step2 onComplete={handleStepComplete} />}
       {currentStep === 3 && <Step3 onComplete={handleStepComplete} />}
+      {currentStep === 4 && <Step4 onComplete={handleStepComplete} />}
     </div>
   );
 };

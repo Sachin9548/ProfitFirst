@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   BarChart,
   Bar,
@@ -11,6 +11,19 @@ import {
   Line,
   CartesianGrid,
 } from 'recharts';
+
+const adsSumaryData = [
+  ['Amount Spend', '₹10,000'],
+  ['Impression', 'No.10'],
+  ['CPM', '₹1,000'],
+  ['CTR', '1.0%'],
+  ['Clicks', 'No.50'],        
+  ['CPC', '₹1000'],
+  ['Sales', 'No.50'],
+  ['CPS', '₹100'],
+  ['ROAS', '4.8'],        
+  ['Total Sales', '₹1000'],
+];
 
 
 const spendData = [
@@ -32,7 +45,19 @@ const metaAdsData = [
   { name: 'Campaign 9', value: 4000 },
 ];
 
+
+
 const Marketing = () => {
+
+
+  const [campaignFilter, setCampaignFilter] = useState('Best');
+  
+  const sortedMetaAdsData = [...metaAdsData].sort((a, b) => {
+    if (campaignFilter === 'Best') return b.value - a.value; 
+    if (campaignFilter === 'Least') return a.value - b.value;
+    return 0;
+  });
+
   return (
     <div className="min-h-screen p-6 text-white space-y-6">
       {/* Header */}
@@ -42,15 +67,27 @@ const Marketing = () => {
           <p className="text-sm text-white">Overall Data like the main dashboard starting</p>
         </div>
         <select className="bg-[#161616] text-sm text-white px-3 py-1 rounded border border-gray-700">
-          <option>By Date</option>
+          <option>This Year</option>
+          <option>This Month</option>
+          <option>Last 7 Days</option>
         </select>
+      </div>
+
+       {/* Summary Cards */}
+       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-8">
+        {adsSumaryData.map(([title, value]) => (
+          <div key={title} className="bg-[#161616] p-4 rounded-xl shadow-md">
+            <div className="text-sm text-white">{title}</div>
+            <div className="text-xl font-bold">{value}</div>
+          </div>
+        ))}
       </div>
 
       {/* Campaign Breakdown Button */}
       <button className="border border-gray-500 rounded px-4 py-1 text-xl hover:bg-white/10 z-1">
         Campaign Breakdown
       </button>
-
+ 
       {/* Spend, CPP and ROAS Chart */}
       <div className="bg-[#161616] rounded-xl p-4 z-1">
         <h3 className="text-xl font-medium mb-4">Spend, CPP and ROAS</h3>
@@ -60,7 +97,17 @@ const Marketing = () => {
             <XAxis dataKey="name" stroke="#888" />
             <YAxis yAxisId="left" stroke="#888" tickFormatter={(v) => `$${v / 1000}K`} />
             <YAxis yAxisId="right" orientation="right" stroke="#888" domain={[0, 5]} />
-            <Tooltip />
+            <Tooltip contentStyle={{
+    backgroundColor: '#161616',
+    border: '1px solid #2e2e2e',
+    borderRadius: '8px',
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
+    color: '#ffffff',
+  }}
+  wrapperStyle={{
+    zIndex: 1000,
+  }}
+  cursor={{ fill: '#2e2e2e', opacity: 0.1 }} />
             <Legend />
             <Bar yAxisId="left" dataKey="cpp" stackId="a" fill="#6a66db" name="CPP"/>
             <Bar yAxisId="left" dataKey="spend" stackId="a" fill="#3b82f6" name="Spend"  />
@@ -117,19 +164,39 @@ const Marketing = () => {
         </div>
       </div>
 
-      {/* Meta Ads Campaigns Chart */}
-      <div className="bg-[#161616] rounded-xl p-4">
-        <h3 className="text-xl font-medium mb-4">Meta Ads Campaigns</h3>
-        <ResponsiveContainer width="100%" height={250}>
-          <BarChart data={metaAdsData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
-            <XAxis dataKey="name" stroke="#888" />
-            <YAxis stroke="#888" />
-            <Tooltip />
-            <Bar dataKey="value" fill="#5488d8" />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
+    {/* Meta Ads Campaigns Chart with Filter and Sorting */}
+<div className="bg-[#161616] rounded-xl p-4">
+  <div className="flex justify-between items-center mb-4">
+    <h3 className="text-xl font-medium">Meta Ads Campaigns</h3>
+    <select
+      value={campaignFilter}
+      onChange={(e) => setCampaignFilter(e.target.value)}
+      className="bg-[#202020] text-white text-sm px-3 py-1 rounded border border-gray-700"
+    >
+      <option value="Best">Best Performing</option>
+      <option value="Least">Least Performing</option>
+    </select>
+  </div>
+  <ResponsiveContainer width="100%" height={250}>
+    <BarChart data={sortedMetaAdsData}>
+      <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
+      <XAxis dataKey="name" stroke="#888" />
+      <YAxis stroke="#888" />
+      <Tooltip contentStyle={{
+    backgroundColor: '#161616',
+    border: '1px solid #2e2e2e',
+    borderRadius: '8px',
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
+    color: '#ffffff',
+  }}
+  wrapperStyle={{
+    zIndex: 1000,
+  }}
+  cursor={{ fill: '#2e2e2e', opacity: 0.1 }} />
+      <Bar dataKey="value" fill="#5488d8" />
+    </BarChart>
+  </ResponsiveContainer>
+</div>
 
       {/* Summary Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-md text-gray-200">

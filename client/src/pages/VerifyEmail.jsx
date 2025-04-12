@@ -13,6 +13,7 @@ const VerifyEmail = () => {
   const navigate = useNavigate();
   const { token } = useParams();
   const [status, setStatus] = useState("loading");
+  
 
   const maskedEmail = location.state?.email ? maskEmail(location.state.email) : "your email";
 

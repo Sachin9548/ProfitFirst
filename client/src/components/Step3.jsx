@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Logo1 from "../assets/Logo1.png";
+import {PulseLoader} from "react-spinners";
+import axiosInstance from "../../axios";
 
 const Step3 = ({ onComplete }) => {
   const [platform, setPlatform] = useState("Meta");
@@ -9,22 +11,35 @@ const Step3 = ({ onComplete }) => {
     
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setMetaData({ ...MetaData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await axiosInstance.post("/onboard/step3", MetaData);
       toast.success("Ad account connected!");
       onComplete();
+      setLoading(false);
     } catch (err) {
       toast.error("Failed to connect ad account.");
       console.error("Submission error:", err);
+      setLoading(false);
     }
   };
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-[#0D1D1E]">
+        <PulseLoader size={60} color="#12EB8E" />
+        {/* <ClipLoader size={60} color="#4f46e5" /> */}
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-6 bg-[#0D1D1E] text-white">
        {/* Add the two blurred circles */}
