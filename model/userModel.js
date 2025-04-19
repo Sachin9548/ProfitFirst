@@ -78,21 +78,38 @@ const UserSchema = new mongoose.Schema({
                 default: "Shopify",
             },
         },
-        step3: {
+        step4: {
             adAccountId: {
                 type: String,
                 default: "",
-            },
-            AdaccessToken: {
-                type: String,
-                default: "",
-
             },
             platform: {
                 type: String,
                 default: "Meta",
             },
         },
+        step5: {
+            shiproactId: {
+                type: String,
+                default: "",
+            },
+            shiproactPassword: {
+                type: String,
+                default: "",
+            },
+            token:{
+                type: String,
+                default: "",
+            },
+            created_at:{
+                type: Date,
+                default: Date.now,
+            },
+            platform: {
+                type: String,
+                default: "Shiprocket",
+            },
+        }
 
     },
     }, { timestamps: true });

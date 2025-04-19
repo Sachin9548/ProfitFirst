@@ -7,9 +7,6 @@ router.post('/signup',signupController);
 router.get('/verify-email/:token',varifyemail);
 router.post('/login',loginController);
 
-// router.post('/logout',logoutController);
-// router.post('/forgotpassword',forgotpasswordController);
-
 module.exports = router;
 
 

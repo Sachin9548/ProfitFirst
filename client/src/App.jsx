@@ -35,11 +35,11 @@ function App() {
         <Route
           path="/onboarding"
           element={isAuthenticated ? <Onboarding /> : <Navigate to="/login" replace />}
-        />
+          />
 
         {/* MainDashboard Layout Route with nested children */}
-        {/* <Route path="/dashboard" element={<MainDashboard />}> */}
         <Route path="/dashboard" element={isAuthenticated ? <MainDashboard />:  <Navigate to="/login" replace />}>
+        {/* <Route path="/dashboard" element={<MainDashboard />}> */}
           <Route index element={<Dashboard />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="marketing" element={<Marketing />} />
