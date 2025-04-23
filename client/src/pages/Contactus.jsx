@@ -15,6 +15,7 @@ const Contactus = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +52,9 @@ const Contactus = () => {
       if (response.status === 200) {
         toast.success("We will connect with you soon!");
         setFormData({ name: "", email: "", phone: "", website: "", message: "" });
+        setShowThankYou(true);
         setTimeout(() => {
+          setShowThankYou(false);
           window.location.href = "/";
         }, 3000);
       }
@@ -70,7 +73,6 @@ const Contactus = () => {
     return (
       <div className="flex items-center justify-center h-screen bg-[#0D1D1E]">
         <PulseLoader size={60} color="#12EB8E" />
-        {/* <ClipLoader size={60} color="#4f46e5" /> */}
       </div>
     );
   }
@@ -101,16 +103,22 @@ const Contactus = () => {
 
       <div className="flex flex-1 items-center justify-center px-4 ">
         <div className="bg-gray-900 bg-opacity-30 backdrop-blur-md rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden w-11/12 md:w-3/4 lg:w-2/3">
-          <div className="hidden md:block md:w-1/2">
-            <img
+          <div className="hidden md:block md:w-1/2 flex items-center justify-center content-center relative">
+            {/* <img
               src={contact}
               alt="Contact Us"
               className="w-full h-full object-cover"
-            />
+            /> */}
+              <div className="text-center text-white mb-8 max-w-xl">
+                <h1 className="text-4xl md:text-5xl font-extrabold text-green-400">Demand is High!</h1>
+                <p className="text-lg md:text-xl mt-4 font-medium">
+                  Join our D2C brand waiting list and be the <span className="text-green-400 font-semibold">first to know...</span>
+                </p>
+              </div>
           </div>
 
-          <div className="w-full bg-[#0D191C] md:w-1/2 p-6 flex flex-col items-center justify-center">
-            <h2 className="text-3xl font-bold text-center text-white mb-4">Contact Us</h2>
+          <div className="w-full my-gradient-contact md:w-1/2 p-6 flex flex-col items-center justify-center">
+            <h2 className="text-3xl font-bold text-center text-white mb-4">Kinndly fill the form</h2>
 
             <form onSubmit={handleSubmit} className="w-full">
               <input
@@ -119,7 +127,7 @@ const Contactus = () => {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-3 mb-4 bg-transparent border-2 border-gray-400 text-white rounded-lg"
+                className="w-full p-3 mb-4 bg-transparent border-2 border-white-400 placeholder-white text-white rounded-lg"
                 required
               />
               <input
@@ -128,7 +136,7 @@ const Contactus = () => {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-3 mb-4 bg-transparent border-2 border-gray-400 text-white rounded-lg"
+                className="w-full p-3 mb-4 bg-transparent border-2 border-white-400 placeholder-white text-white rounded-lg"
                 required
               />
               <input
@@ -137,7 +145,7 @@ const Contactus = () => {
                 placeholder="Your Phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full p-3 mb-4 bg-transparent border-2 border-gray-400 text-white rounded-lg"
+                className="w-full p-3 mb-4 bg-transparent border-2 border-white-400 placeholder-white text-white rounded-lg"
                 required
               />
               <input
@@ -146,7 +154,7 @@ const Contactus = () => {
                 placeholder="Your Website"
                 value={formData.website}
                 onChange={handleChange}
-                className="w-full p-3 mb-4 bg-transparent border-2 border-gray-400 text-white rounded-lg"
+                className="w-full p-3 mb-4 bg-transparent border-2 border-white-400 placeholder-white text-white rounded-lg"
                 required
               />
               <textarea
@@ -154,7 +162,7 @@ const Contactus = () => {
                 placeholder="Your Message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-3 mb-4 bg-transparent border-2 border-gray-400 text-white rounded-lg"
+                className="w-full p-3 mb-4 bg-transparent border-2 border-white-400 placeholder-white text-white rounded-lg"
                 required
               ></textarea>
               <button
@@ -162,15 +170,36 @@ const Contactus = () => {
                 className=" w-full py-3 font-bold rounded-lg transition btn-professional"
                 disabled={isLoading}
               >
-                <span> {isLoading ? "Sending..." : "Done!"}</span>
-               
+                <span>{isLoading ? "Sending..." : "Done!"}</span>
               </button>
             </form>
           </div>
         </div>
       </div>
+
+      {showThankYou && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+          <div className="bg-[#111217] rounded-lg p-8 text-center text-white shadow-lg w-11/12 max-w-md">
+            <h3 className="text-2xl font-bold text-green-400 mb-4">Thank You!</h3>
+            <p className="text-gray-300 mb-4">
+            Thanks for joining our waitlist. We'll be in touch soon!
+                        </p>
+            <div className="w-full flex justify-center">
+              <PulseLoader size={12} color="#12EB8E" />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default Contactus;
+
+
+
+
+
+
+
+

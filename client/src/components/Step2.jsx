@@ -24,7 +24,7 @@ const Step2 = ({ onComplete }) => {
     setLoading(true);
     try {
       await axiosInstance.post("/onboard/step2", shopifyData);
-      toast.success("Shopify store connected!");
+      toast.success("Shopify store connected!"); 
       onComplete();
       setLoading(false);
     } catch (err) {

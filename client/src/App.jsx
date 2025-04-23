@@ -16,6 +16,7 @@ import Analytics from './pages/Analytics';
 import Shipping from './pages/Shipping';
 import Products from './pages/Products';
 import Returns from './pages/Returns';
+import Blogs from './pages/Blogs';
 
 function App() {
   const isAuthenticated = isTokenValid();
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/contact" element={<Contactus />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/verify-email" element={<VerifyEmail />} />

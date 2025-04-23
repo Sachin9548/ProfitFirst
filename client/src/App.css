@@ -93,3 +93,7 @@ body{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+.my-gradient-contact {
+  background: linear-gradient(to bottom right, #04cc76, #000703);
+}

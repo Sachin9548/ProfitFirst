@@ -70,7 +70,7 @@ const UserSchema = new mongoose.Schema({
                 default: "",
             },
             accessToken: {
-                type: String,
+                type: String, 
                 default: "",
             },
             platform: {

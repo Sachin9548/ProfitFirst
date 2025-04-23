@@ -21,7 +21,7 @@ const Homepage = () => {
         <Intigration/>
         <ProfitAnalyticsSection/>
         <Blogsection/> 
-        <Pricing/>
+        <Pricing/> 
         <FAQ/>
         <Footer/>
         </div>

@@ -22,7 +22,7 @@ const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); // Start loading
-    try {
+    try { 
       await axiosInstance.post("/onboard/step1", form);
       toast.success("Step 1 completed successfully!");
       onComplete(); // only go next on success

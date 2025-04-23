@@ -25,7 +25,7 @@ const onboardStep1 = async (req, res) => {
     try {
       user.onboarding.step1 = {
         fullName,
-        email,
+        email, 
         phone,
         whatsapp,
         industry,

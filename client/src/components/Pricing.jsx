@@ -1,10 +1,11 @@
 import React from 'react';
 import "../App.css";
+import {Link} from 'react-router-dom';
 const Pricing = () => {
   return (
     <section id='PRICING' className=" text-white py-4 px-4">
       <div className="max-w-xl mx-auto text-center">
-        <h2 className="text-4xl my-gradient-text md:text-4xl font-semibold mb-2">Pricing</h2>
+        <h2 className="text-4xl my-gradient-text md:text-4xl font-semibold mb-2">Our Pricing</h2>
         <p className="text-gray-400">
           We offer one price for all D2C brands whether you have just started
           or you’re getting thousands of orders every day.
@@ -44,8 +45,9 @@ const Pricing = () => {
 
         <button
           className="mt-8 w-full py-3 text-black rounded transition-colors font-bold" style={{background: '#13ef96'}}
-        >
+        ><Link to={"/Contact"}>
           Start your free trial
+        </Link>
         </button>
       </div>
     </section>
