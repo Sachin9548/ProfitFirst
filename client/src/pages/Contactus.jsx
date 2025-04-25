@@ -31,7 +31,7 @@ const Contactus = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.message || !formData.phone || !formData.website) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.website) {
       toast.error("All fields are required");
       return;
     }
@@ -83,9 +83,9 @@ const Contactus = () => {
 
       <button
         onClick={handleBack}
-        className="absolute top-4 left-4 z-10 bg-green-600 px-4 py-2 rounded-full hover:bg-green-700 transition text-white"
+        className="absolute top-4 left-4 z-10 px-4 py-2 rounded-full transition text-white"
       >
-        Back
+        X
       </button>
 
       <div
@@ -153,14 +153,14 @@ const Contactus = () => {
                 className="w-full p-3 mb-4 bg-transparent border-2 border-white-400 placeholder-white text-white rounded-lg"
                 required
               />
-              <textarea
+              {/* <textarea
                 name="message"
                 placeholder="Your Message"
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full p-3 mb-4 bg-transparent border-2 border-white-400 placeholder-white text-white rounded-lg"
                 required
-              ></textarea>
+              ></textarea> */}
               <button
                 type="submit"
                 className=" w-full py-3 font-bold rounded-lg transition btn-professional"
