@@ -18,7 +18,7 @@ const Footer = () => {
                 src={Logo}
                 alt="Profit First Logo"
                 className=" object-cover"
-                style={{height: '200px' }}
+                style={{height: '100px' }}
               />
             </div>
             {/* Optional tagline or short description */}

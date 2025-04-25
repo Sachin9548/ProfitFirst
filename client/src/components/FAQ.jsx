@@ -34,10 +34,11 @@ const FAQ = () => {
         {/* Heading and Subheading */}
         <div className="text-center max-w-xl mx-auto mb-8">
           
-          <h2 className="text-4xl md:text-4xl font-bold mb-2 capitalize">
-            Some of the things you may want<span className='my-gradient-text'> to know</span>
-          </h2>
-          <p className="text-gray-400">
+        <h2 className="text-3xl sm:text-3xl md:text-4xl font-bold text-center capitalize mb-4 px-4 leading-snug">
+  Some of the things you may want <span className="my-gradient-text">to know</span>
+</h2>
+
+          <p className="text-white">
             We answered questions so you don't have to ask them.
           </p>
         </div>

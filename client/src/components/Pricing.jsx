@@ -5,8 +5,10 @@ const Pricing = () => {
   return (
     <section id='PRICING' className=" text-white py-4 px-4">
       <div className="max-w-xl mx-auto text-center">
-        <h2 className="text-4xl my-gradient-text md:text-4xl font-semibold mb-2">Our Pricing</h2>
-        <p className="text-gray-400">
+      <h2 className="text-3xl sm:text-3xl md:text-4xl font-semibold text-center my-gradient-text mb-4 px-4 leading-snug">
+  Our Pricing
+</h2>
+        <p className="text-white">
           We offer one price for all D2C brands whether you have just started
           or you’re getting thousands of orders every day.
         </p>

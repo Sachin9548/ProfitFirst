@@ -5,10 +5,12 @@ const FlowSection = () => {
   return (
     <section className="py-10 px-4 text-center ">
     
-      <h2 className="text-4xl font-bold mb-4 text-white">
-        Getting the Good <span className="my-gradient-text font-bold"> ROAS </span> but still don’t know<br /> where your profit is <span className="my-gradient-text font-bold">going?</span>
-      </h2>
-      <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
+    <h2 className="text-3xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-6 leading-snug px-4">
+  Getting the Good <span className="my-gradient-text font-bold">ROAS</span> but still don’t know<br className="hidden sm:block" />&nbsp;
+   where your profit is <span className="my-gradient-text font-bold">going?</span>
+</h2>
+
+      <p className="text-white mb-12 max-w-2xl mx-auto">
         Profit first will help you to figure out everything in your E com business
       </p>
       <div className="p-2 m-0 flex flex-col justify-center items-center">

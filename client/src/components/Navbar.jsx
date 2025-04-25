@@ -9,14 +9,14 @@ const Navbar = () => {
 
   // Function to control navbar visibility based on scroll direction
   const controlNavbar = () => {
-    // if (typeof window !== "undefined") {
-    //   if (window.scrollY > lastScrollY) {
-    //     setShowNavbar(false);
-    //   } else {
-    //     setShowNavbar(true);
-    //   }
-    //   setLastScrollY(window.scrollY);
-    // }
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      setLastScrollY(window.scrollY);
+    }
   };
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation Links */}
-        <ul className="hidden md:flex space-x-6 text-[#999] gap-6">
+        <ul className="hidden md:flex space-x-6 text-[#fff] gap-6">
           <li>
             <Link to="/" className="hover:text-green-500">
               Home

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import blog1 from '../assets/blog1.png';
+import blog2 from '../assets/blog2.png';
+import blog3 from '../assets/blog3.png';
 const Blogsection = () => {
   const blogs = [
     {
@@ -9,7 +11,8 @@ const Blogsection = () => {
       title: 'Higher ROAS Doesn’t Mean You Are Profitable: Don’t Fall for the ROAS Trap!',
       author: 'Shubham Soni',
       date: 'Apr 23, 2025',
-      image: 'https://d3jbnyrxd2dsna.cloudfront.net/Profit%20First/blog1.png',
+      // image: 'https://d3jbnyrxd2dsna.cloudfront.net/Profit%20First/blog1.png',
+      image: blog1,
       content:
         '📈 <strong>Higher ROAS ≠ Profitability</strong> 📉<br><br>' +
         'When running a business, it’s easy to get excited by a high Return on Ad Spend (ROAS). For example, a 5x ROAS might seem like you’re making a fortune from your ads. But there’s a big catch: ROAS doesn’t directly indicate profitability.<br><br>' +
@@ -33,7 +36,7 @@ const Blogsection = () => {
       title: '90% OF D2C BRANDS DIE FROM MESSY DATA',
       author: 'Shubham Soni',
       date: 'Apr 24, 2025',
-      image: 'https://d3jbnyrxd2dsna.cloudfront.net/Profit%20First/blog2.png',
+      image: blog2,
       content: 
         '💥 **DATA CHAOS KILLS D2C DREAMS** 💥<br><br>' +
         'Running a Direct-to-Consumer (D2C) brand is a dream for many entrepreneurs. But sadly, **90% of D2C brands fail** because they’re overwhelmed by **messy data**. In today’s fast-paced world, there’s so much data to track: from customer acquisition costs (CAC) to lifetime value (LTV), to product costs, and shipping fees. Without the right tools to organize this data, many D2C businesses miss out on the bigger picture and suffer financially.<br><br>' +
@@ -57,7 +60,7 @@ const Blogsection = () => {
       title: 'Forget Spreadsheets — Profit First Tracks It All',
       author: 'Shubham Soni',
       date: 'Apr 25, 2025',
-      image: 'https://d3jbnyrxd2dsna.cloudfront.net/Profit%20First/blog3.png',
+      image: blog3,
       content: 
         '📊 **Forget Spreadsheets — Profit First Tracks It All** 📊<br><br>' +
         'Managing a business with **spreadsheets** is outdated. Sure, spreadsheets can track some numbers, but they quickly become overwhelming, especially when you are juggling multiple platforms and complex data. Running a **D2C brand** means you need **real-time insights** into your business’s performance. That’s why it’s time to **ditch spreadsheets** and switch to **Profit First**.<br><br>' +
@@ -83,11 +86,11 @@ const Blogsection = () => {
   return (
     <section id="BLOG" className="py-12 px-2 md:px-12 text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-4">
-          Stay Connected on our  
-          <span className="my-gradient-text"> Newsletter</span>
-        </h2>
-        <p className="text-center text-gray-400 max-w-2xl mx-auto mb-8">
+      <h2 className="text-3xl sm:text-3xl md:text-4xl font-bold text-center text-white mb-6 leading-snug px-4">
+  Stay Connected on our <span className="my-gradient-text font-bold">Newsletter</span>
+</h2>
+
+        <p className="text-center text-white max-w-2xl mx-auto mb-8">
           You’ll get lot to know that how profit first can help you to scale your D2C brand and how other’s KPI’s work.
         </p>
 
@@ -101,7 +104,7 @@ const Blogsection = () => {
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="w-full h-48 object-cover rounded-t-lg"
+                  className="w-full h-auto object-cover rounded-t-lg"
                 />
                 <span className="absolute bottom-2 left-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded">
                   {blog.category}
@@ -141,7 +144,7 @@ const Blogsection = () => {
               <img
                 src={selectedBlog.image}
                 alt={selectedBlog.title}
-                className="w-full h-60 object-cover rounded-t-lg"
+                className="w-full h-auto object-cover rounded-t-lg"
               />
               <h3 className="text-sm text-green-500 font-semibold">
                 {selectedBlog.category}

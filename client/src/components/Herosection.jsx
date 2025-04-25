@@ -26,14 +26,14 @@ const Herosection = () => {
       {/* Top Tag */}
 
       {/* Title */}
-      <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 capitalize" style={{lineHeight: "1.4",marginTop: "100px"}}>
-      Know how much you <span className=" font-bold my-gradient-text" >spent</span> & <br />
-      how much <span className=" font-bold my-gradient-text">profit</span> you'll make, all in one place!
-
+      <h1 className="text-3xl sm:text-3xl md:text-5xl font-bold text-center mb-6 mt-24 leading-snug md:leading-tight capitalize px-4">
+        Know how much you <span className="font-bold my-gradient-text">spent</span> <br className="hidden sm:block" />
+        & how much <span className="font-bold my-gradient-text">profit</span> you'll make, all in one place!
       </h1>
 
+
       {/* Paragraph */}
-      <p className="text-center text-[#999] max-w-2xl mt-6 mb-6 text-lg">
+      <p className="text-center text-[#fff] max-w-2xl mt-6 mb-6 text-lg">
       Find every detail that matters to grow your D2C brand—from Roas to Net Profit.
       </p>
 
@@ -59,7 +59,7 @@ const Herosection = () => {
 </div>
 
 
-    </section>
+    </section> 
 
 
     <section

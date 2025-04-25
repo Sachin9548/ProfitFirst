@@ -1,23 +1,22 @@
 import React from "react";
+import Animation from "../assets/Animation.mp4";
 const Intigration = () => {
   return (
     <section className="py-10 px-4 text-center ">
     
-    <h2 className="text-4xl font-bold mb-4 text-white">
-      Easily Integrate with <span className="my-gradient-text font-bold"> Various Platform
-      </span>
+      <h2 className="text-3xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-6 leading-snug px-4">
+        Easily Integrate with <span className="my-gradient-text font-bold">Various Platforms</span>
       </h2>
-      <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
+      <p className="text-white mb-12 max-w-2xl mx-auto">
         All problem single solution
       </p>
-      {/* <div className="p-12 m-0 flex flex-col justify-center items-center">
+     <div className="p-1 m-0 flex flex-col justify-center items-center">
        <video className="" autoPlay loop muted style={{width:"60%"}}>
-        <source src={gif} type="video/mp4" />
+        <source src={Animation} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      </div> */}
-      
-    </section>    
+      </div> 
+    </section>
   );
 };
 

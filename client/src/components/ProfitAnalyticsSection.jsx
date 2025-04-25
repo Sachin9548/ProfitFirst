@@ -48,12 +48,12 @@ const ProfitAnalyticsSection = () => {
   return (
     <>
       <div className="max-w-6xl mx-auto text-center text-white" id="USECASES">
-        <h2 className="text-4xl font-bold mb-4">
-          Say goodbye to login multiple platforms 
-          <br />
-          <span className="my-gradient-text font-bold">everytime</span>
-        </h2>
-        <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-white mb-6 leading-snug px-4">
+  Say goodbye to logging into multiple platforms <br className="hidden sm:block" />
+  <span className="my-gradient-text font-bold">every time</span>
+</h2>
+
+        <p className="text-white mb-12 max-w-2xl mx-auto">
           D2C brands owners always check multiple platforms to see the Data
           <br /> but not from now
         </p>
