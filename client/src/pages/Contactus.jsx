@@ -114,7 +114,7 @@ const Contactus = () => {
             </div>
           </div>
           <div className="w-full my-gradient-contact md:w-1/2 p-6 flex flex-col items-center justify-center">
-            <h2 className="text-3xl font-bold text-center text-white mb-4">Kinndly fill the form</h2>
+            <h2 className="text-3xl font-bold text-center text-white mb-4">Kindly fill the form</h2>
 
             <form onSubmit={handleSubmit} className="w-full">
               <input
