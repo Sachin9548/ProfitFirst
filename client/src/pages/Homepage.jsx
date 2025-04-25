@@ -17,7 +17,7 @@ const Homepage = () => {
         <Navbar />
         <Herosection/>
         <TrustedBrandsMarquee/>
-        <FlowSection/>
+        <FlowSection/> 
         <Intigration/>
         <ProfitAnalyticsSection/>
         <Blogsection/> 

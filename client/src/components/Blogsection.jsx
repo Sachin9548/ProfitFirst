@@ -84,85 +84,83 @@ const Blogsection = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
 
   return (
-    <section id="BLOG" className="py-12 px-2 md:px-12 text-white">
-      <div className="container mx-auto px-4">
-      <h2 className="text-3xl sm:text-3xl md:text-4xl font-bold text-center text-white mb-6 leading-snug px-4">
-  Stay Connected on our <span className="my-gradient-text font-bold">Newsletter</span>
-</h2>
+    <section id="BLOG" className="py-12 px-4 md:px-12 text-white overflow-x-hidden">
+    <div className="max-w-7xl mx-auto">
+      <h2 className="text-2xl sm:text-4xl font-bold text-center mb-6 leading-snug px-2">
+        Stay Connected on our <span className="my-gradient-text font-bold">Newsletter</span>
+      </h2>
 
-        <p className="text-center text-white max-w-2xl mx-auto mb-8">
-          You’ll get lot to know that how profit first can help you to scale your D2C brand and how other’s KPI’s work.
-        </p>
+      <p className="text-center text-white max-w-2xl mx-auto mb-10 px-2 text-sm sm:text-base">
+        You’ll get to know how Profit First can help scale your D2C brand and how others manage their KPIs.
+      </p>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {blogs.map((blog) => (
-            <div
-              key={blog.id}
-              className="bg-[#161616] rounded-lg shadow hover:shadow-lg transition flex flex-col p-6 mx-auto w-full md:w-[85%]"
-            >
-              <div className="relative">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-auto object-cover rounded-t-lg"
-                />
-                <span className="absolute bottom-2 left-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded">
-                  {blog.category}
-                </span>
-              </div>
-
-              <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold mb-2 line-clamp-2">
-                  {blog.title}
-                </h3>
-                <div className="flex justify-between text-sm text-gray-400 mt-auto">
-                  <span>By {blog.author}</span>
-                  <span>{blog.date}</span>
-                </div>
-                <button
-                  onClick={() => setSelectedBlog(blog)}
-                  className="mt-3 text-sm text-green-500 hover:underline self-start"
-                >
-                  Read More
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {selectedBlog && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-          <div className="bg-[#1e1e1e] w-full max-w-2xl mx-4 p-6 rounded-lg shadow relative text-white h-[80vh] flex flex-col">
-            <button
-              className="absolute top-2 right-2 text-gray-400 hover:text-gray-200 text-2xl font-bold"
-              onClick={() => setSelectedBlog(null)}
-            >
-              &times;
-            </button>
-            <div className="overflow-y-auto pr-2 mt-4 space-y-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {blogs.map((blog) => (
+          <div
+            key={blog.id}
+            className="bg-[#161616] rounded-lg shadow hover:shadow-lg transition flex flex-col p-4"
+          >
+            <div className="relative">
               <img
-                src={selectedBlog.image}
-                alt={selectedBlog.title}
-                className="w-full h-auto object-cover rounded-t-lg"
+                src={blog.image}
+                alt={blog.title}
+                className="w-full h-auto object-cover rounded-lg"
               />
-              <h3 className="text-sm text-green-500 font-semibold">
-                {selectedBlog.category}
-              </h3>
-              <p className="text-sm text-gray-400">
-                By {selectedBlog.author} | {selectedBlog.date}
-              </p>
+              <span className="absolute bottom-2 left-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded">
+                {blog.category}
+              </span>
+            </div>
 
-              <h2 className="text-2xl font-bold">{selectedBlog.title}</h2>
-              <div
-                className="leading-relaxed text-gray-300 prose prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: selectedBlog.content }}
-              ></div>
+            <div className="mt-4 flex flex-col flex-grow">
+              <h3 className="text-base sm:text-lg font-semibold mb-2 line-clamp-2">
+                {blog.title}
+              </h3>
+              <div className="flex justify-between text-sm text-gray-400 mt-auto">
+                <span>By {blog.author}</span>
+                <span>{blog.date}</span>
+              </div>
+              <button
+                onClick={() => setSelectedBlog(blog)}
+                className="mt-3 text-sm text-green-500 hover:underline self-start"
+              >
+                Read More
+              </button>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Modal */}
+    {selectedBlog && (
+      <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center px-4">
+        <div className="bg-[#1e1e1e] w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg shadow-lg relative p-6 text-white">
+          <button
+            className="absolute top-2 right-2 text-gray-400 hover:text-gray-200 text-2xl font-bold"
+            onClick={() => setSelectedBlog(null)}
+          >
+            &times;
+          </button>
+          <div className="mt-6">
+            <img
+              src={selectedBlog.image}
+              alt={selectedBlog.title}
+              className="w-full h-auto object-cover rounded"
+            />
+            <h3 className="text-sm text-green-500 mt-4">{selectedBlog.category}</h3>
+            <p className="text-sm text-gray-400 mb-2">
+              By {selectedBlog.author} | {selectedBlog.date}
+            </p>
+            <h2 className="text-2xl font-bold mb-4">{selectedBlog.title}</h2>
+            <div
+              className="leading-relaxed text-gray-300 prose prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: selectedBlog.content }}
+            />
+          </div>
         </div>
-      )}
-    </section>
+      </div>
+    )}
+  </section>
   );
 };
 

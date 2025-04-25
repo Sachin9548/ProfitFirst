@@ -103,20 +103,16 @@ const Contactus = () => {
 
       <div className="flex flex-1 items-center justify-center px-4 ">
         <div className="bg-gray-900 bg-opacity-30 backdrop-blur-md rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden w-11/12 md:w-3/4 lg:w-2/3">
-          <div className="hidden md:block md:w-1/2 flex items-center justify-center content-center relative">
-            {/* <img
-              src={contact}
-              alt="Contact Us"
-              className="w-full h-full object-cover"
-            /> */}
-              <div className="text-center text-white mb-8 max-w-xl">
-                <h1 className="text-4xl md:text-5xl font-extrabold text-green-400">Demand is High!</h1>
-                <p className="text-lg md:text-xl mt-4 font-medium">
-                  Join our D2C brand waiting list and be the <span className="text-green-400 font-semibold">first to know...</span>
-                </p>
-              </div>
+        <div className="w-full md:w-1/2 flex items-center justify-center px-4 py-8 md:py-0 text-center text-white relative z-1 mt-12">
+            <div className="max-w-xl">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-green-400">
+                Demand is High!
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl mt-4 font-medium">
+                Join our D2C brand waiting list and be the <span className="text-green-400 font-semibold">first to know...</span>
+              </p>
+            </div>
           </div>
-
           <div className="w-full my-gradient-contact md:w-1/2 p-6 flex flex-col items-center justify-center">
             <h2 className="text-3xl font-bold text-center text-white mb-4">Kinndly fill the form</h2>
 
