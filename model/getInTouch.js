@@ -5,7 +5,8 @@ const getInTouchSchema = new Schema({
   name: String,
   email: String,
   message: String,
-  phone: String
+  phone: String,
+  website: String,
 }, {
   timestamps: true
   
