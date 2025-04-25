@@ -10,12 +10,20 @@ const Intigration = () => {
       <p className="text-white mb-12 max-w-2xl mx-auto">
         All problem single solution
       </p>
-     <div className="p-1 m-0 flex flex-col justify-center items-center">
-       <video className="" autoPlay loop muted style={{width:"60%"}}>
-        <source src={Animation} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      </div> 
+      <div className="w-full m-0 p-0 flex justify-center items-center">
+          <video
+            className="w-full sm:max-w-3xl sm:rounded-lg sm:shadow-lg"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src={Animation} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+
     </section>
   );
 };
