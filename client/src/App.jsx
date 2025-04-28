@@ -17,6 +17,7 @@ import Shipping from './pages/Shipping';
 import Products from './pages/Products';
 import Returns from './pages/Returns';
 import Blogs from './pages/Blogs';
+import PrivacyPolicy from './components/privacypolicy';
 
 function App() {
   const isAuthenticated = isTokenValid();
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/contact" element={<Contactus />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* <-- New Line */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
@@ -40,8 +42,8 @@ function App() {
           />
 
         {/* MainDashboard Layout Route with nested children */}
-        <Route path="/dashboard" element={isAuthenticated ? <MainDashboard />:  <Navigate to="/login" replace />}>
-        {/* <Route path="/dashboard" element={<MainDashboard />}> */}
+        {/* <Route path="/dashboard" element={isAuthenticated ? <MainDashboard />:  <Navigate to="/login" replace />}> */}
+        <Route path="/dashboard" element={<MainDashboard />}>
           <Route index element={<Dashboard />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="marketing" element={<Marketing />} />

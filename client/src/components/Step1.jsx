@@ -3,7 +3,6 @@ import Logo1 from "../assets/Logo1.png";
 import axiosInstance from "../../axios";
 import { toast } from "react-toastify";
 
-
 const Step1 = ({ onComplete }) => {
   const [form, setForm] = useState({
     fullName: "",
@@ -13,7 +12,7 @@ const Step1 = ({ onComplete }) => {
     industry: "",
     referral: "",
   });
-const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -22,7 +21,7 @@ const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); // Start loading
-    try { 
+    try {
       await axiosInstance.post("/onboard/step1", form);
       toast.success("Step 1 completed successfully!");
       onComplete(); // only go next on success
@@ -46,7 +45,8 @@ const [loading, setLoading] = useState(false);
     <div
       className="min-h-screen flex items-center justify-center p-4 sm:p-6"
       style={{
-        background: "linear-gradient(to bottom, rgb(0, 40, 38), rgb(0, 85, 58))",
+        background:
+          "linear-gradient(to bottom, rgb(0, 40, 38), rgb(0, 85, 58))",
       }}
     >
       <div className="bg-[#0D191C] text-white rounded-3xl shadow-2xl flex flex-col lg:flex-row w-full max-w-6xl overflow-hidden">
@@ -108,38 +108,40 @@ const [loading, setLoading] = useState(false);
             </div>
 
             <div>
-  <label className="block text-sm mb-1 text-white">Industry</label>
-  <select
-    name="industry"
-    value={form.industry}
-    onChange={handleChange}
-    className="w-full px-4 py-2 rounded-md bg-[#0D191C] border border-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-  >
-    <option value="E-commerce">E-commerce</option>
-    <option value="Technology">Technology</option>
-    <option value="Health & Wellness">Health & Wellness</option>
-    <option value="Finance">Finance</option>
-    <option value="Education">Education</option>
-    <option value="Other">Other</option>
-  </select>
-</div>
+              <label className="block text-sm mb-1 text-white">Industry</label>
+              <select
+                name="industry"
+                value={form.industry}
+                onChange={handleChange}
+                className="w-full px-4 py-2 rounded-md bg-[#0D191C] border border-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
+                <option value="E-commerce">E-commerce</option>
+                <option value="Technology">Technology</option>
+                <option value="Health & Wellness">Health & Wellness</option>
+                <option value="Finance">Finance</option>
+                <option value="Education">Education</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
 
-<div>
-  <label className="block text-sm mb-1 text-white">Where did you hear about Profit First</label>
-  <select
-    name="referral"
-    value={form.referral}
-    onChange={handleChange}
-    className="w-full px-4 py-2 rounded-md bg-[#0D191C] border border-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-  >
-    <option value="Google Search">Google Search</option>
-    <option value="YouTube">YouTube</option>
-    <option value="Social Media">Social Media</option>
-    <option value="Friend or Colleague">Friend or Colleague</option>
-    <option value="Event or Webinar">Event or Webinar</option>
-    <option value="Other">Other</option>
-  </select>
-</div>
+            <div>
+              <label className="block text-sm mb-1 text-white">
+                Where did you hear about Profit First
+              </label>
+              <select
+                name="referral"
+                value={form.referral}
+                onChange={handleChange}
+                className="w-full px-4 py-2 rounded-md bg-[#0D191C] border border-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
+                <option value="Google Search">Google Search</option>
+                <option value="YouTube">YouTube</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Friend or Colleague">Friend or Colleague</option>
+                <option value="Event or Webinar">Event or Webinar</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
 
             <div>
               <button

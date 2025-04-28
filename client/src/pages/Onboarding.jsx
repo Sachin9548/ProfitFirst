@@ -41,7 +41,7 @@ const Onboarding = () => {
     }
   };
 
-  if (loading) {
+  if (loading) { 
     return (
       <div className="flex items-center justify-center h-screen bg-[#0D1D1E]">
         <PulseLoader size={60} color="#12EB8E" />

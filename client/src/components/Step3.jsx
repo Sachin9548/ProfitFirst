@@ -56,7 +56,6 @@ const Step3 = ({ onComplete }) => {
       toast.success("✅ Costs updated successfully!");
       setLoading(false);
       onComplete();
-      
     } catch (err) {
       console.error("Update error:", err);
       toast.error("❌ Failed to update costs.");
@@ -84,13 +83,15 @@ const Step3 = ({ onComplete }) => {
       <div
         className="absolute top-0 right-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
         style={{
-          background: "linear-gradient(to right, rgb(18, 235, 142), rgb(18, 235, 142))",
+          background:
+            "linear-gradient(to right, rgb(18, 235, 142), rgb(18, 235, 142))",
         }}
       />
       <div
         className="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
         style={{
-          background: "linear-gradient(to left, rgb(18, 235, 142), rgb(18, 235, 142))",
+          background:
+            "linear-gradient(to left, rgb(18, 235, 142), rgb(18, 235, 142))",
         }}
       />
 
@@ -126,20 +127,42 @@ const Step3 = ({ onComplete }) => {
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="border-b border-gray-600">
-                <th className="py-2 px-4 font-semibold text-white">Product Image</th>
-                <th className="py-2 px-4 font-semibold text-white">Product ID</th>
-                <th className="py-2 px-4 font-semibold text-white">Product Title</th>
-                <th className="py-2 px-4 font-semibold text-white">Price (₹)</th>
-                <th className="py-2 px-4 font-semibold text-white">Manufacturing Cost (₹)</th>
+                <th className="py-2 px-4 font-semibold text-white">
+                  Product Image
+                </th>
+                <th className="py-2 px-4 font-semibold text-white">
+                  Product ID
+                </th>
+                <th className="py-2 px-4 font-semibold text-white">
+                  Product Title
+                </th>
+                <th className="py-2 px-4 font-semibold text-white">
+                  Price (₹)
+                </th>
+                <th className="py-2 px-4 font-semibold text-white">
+                  Manufacturing Cost (₹)
+                </th>
               </tr>
             </thead>
             <tbody>
               {filteredProducts.map((product) => (
-                <tr key={product.id} className="border-b border-gray-700 hover:bg-[#1E2A2B]">
-                  <td className="py-3 px-4"><img src={product.image} width={40} height={40} alt="product image" /></td>
+                <tr
+                  key={product.id}
+                  className="border-b border-gray-700 hover:bg-[#1E2A2B]"
+                >
+                  <td className="py-3 px-4">
+                    <img
+                      src={product.image}
+                      width={40}
+                      height={40}
+                      alt="product image"
+                    />
+                  </td>
                   <td className="py-3 px-4">{product.id}</td>
                   <td className="py-3 px-4">{product.title}</td>
-                  <td className="py-3 px-4">₹{parseFloat(product.price).toFixed(2)}</td>
+                  <td className="py-3 px-4">
+                    ₹{parseFloat(product.price).toFixed(2)}
+                  </td>
                   <td className="py-3 px-4">
                     <input
                       type="number"
@@ -154,16 +177,18 @@ const Step3 = ({ onComplete }) => {
               ))}
             </tbody>
           </table>
-          <div className="w-full flex justify-center
-">
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-32 py-3 rounded-md text-black font-semibold transition hover:text-white"
-            style={{ backgroundColor: "#12EB8E" }}
+          <div
+            className="w-full flex justify-center
+"
           >
-            {submitting ? "Saving..." : "Save Costs"}
-          </button>
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-32 py-3 rounded-md text-black font-semibold transition hover:text-white"
+              style={{ backgroundColor: "#12EB8E" }}
+            >
+              {submitting ? "Saving..." : "Save Costs"}
+            </button>
           </div>
         </form>
       </div>

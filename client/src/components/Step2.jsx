@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo1 from "../assets/Logo1.png";
 import { toast } from "react-toastify";
 import axiosInstance from "../../axios";
-import {set} from "mongoose";
+import { set } from "mongoose";
 
 const Step2 = ({ onComplete }) => {
   const [platform, setPlatform] = useState("Shopify");
@@ -24,7 +24,7 @@ const Step2 = ({ onComplete }) => {
     setLoading(true);
     try {
       await axiosInstance.post("/onboard/step2", shopifyData);
-      toast.success("Shopify store connected!"); 
+      toast.success("Shopify store connected!");
       onComplete();
       setLoading(false);
     } catch (err) {
@@ -43,20 +43,22 @@ const Step2 = ({ onComplete }) => {
   }
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-6 bg-[#0D1D1E] text-white">
-       {/* Add the two blurred circles */}
-       <div 
-    className="absolute top-0 right-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
-    style={{
-      background: 'linear-gradient(to right, rgb(18, 235, 142), rgb(18, 235, 142))',
-    }}
-  ></div>
-  
-  <div 
-    className="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
-    style={{
-      background: 'linear-gradient(to left, rgb(18, 235, 142), rgb(18, 235, 142))',
-    }}
-  ></div>
+      {/* Add the two blurred circles */}
+      <div
+        className="absolute top-0 right-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgb(18, 235, 142), rgb(18, 235, 142))",
+        }}
+      ></div>
+
+      <div
+        className="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
+        style={{
+          background:
+            "linear-gradient(to left, rgb(18, 235, 142), rgb(18, 235, 142))",
+        }}
+      ></div>
       <div className="flex flex-col lg:flex-row items-center gap-10 max-w-7xl w-full">
         {/* Left side: Video and Logo */}
         <div className="w-full lg:w-1/2 text-center">
@@ -69,7 +71,9 @@ const Step2 = ({ onComplete }) => {
 
         {/* Right side: Form */}
         <div className="w-full lg:w-1/2 p-8 rounded-xl myshopifybox">
-          <h2 className="text-xl font-semibold mb-4">Connect your Shopify Store</h2>
+          <h2 className="text-xl font-semibold mb-4">
+            Connect your Shopify Store
+          </h2>
 
           <div className="flex gap-4 mb-6">
             <button
@@ -118,7 +122,9 @@ const Step2 = ({ onComplete }) => {
             </div>
 
             <div>
-              <label className="block text-sm mb-1">Shopify API Security:</label>
+              <label className="block text-sm mb-1">
+                Shopify API Security:
+              </label>
               <input
                 type="text"
                 name="apiSecret"
@@ -129,7 +135,9 @@ const Step2 = ({ onComplete }) => {
             </div>
 
             <div>
-              <label className="block text-sm mb-1">Shopify Access Token:</label>
+              <label className="block text-sm mb-1">
+                Shopify Access Token:
+              </label>
               <input
                 type="text"
                 name="accessToken"
@@ -141,7 +149,8 @@ const Step2 = ({ onComplete }) => {
 
             <button
               type="submit"
-              className="w-full py-3 mt-4 rounded-md text-black font-semibold transition hover:text-white" style={{ backgroundColor:"#12EB8E"}}
+              className="w-full py-3 mt-4 rounded-md text-black font-semibold transition hover:text-white"
+              style={{ backgroundColor: "#12EB8E" }}
             >
               Connect
             </button>

@@ -43,10 +43,20 @@ const Step5 = ({ onComplete }) => {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-6 bg-[#0D1D1E] text-white relative">
       {/* Blurred circles */}
-      <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
-           style={{ background: 'linear-gradient(to right, rgb(18, 235, 142), rgb(18, 235, 142))' }} />
-      <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
-           style={{ background: 'linear-gradient(to left, rgb(18, 235, 142), rgb(18, 235, 142))' }} />
+      <div
+        className="absolute top-0 right-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgb(18, 235, 142), rgb(18, 235, 142))",
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-[100px] opacity-50 z-0"
+        style={{
+          background:
+            "linear-gradient(to left, rgb(18, 235, 142), rgb(18, 235, 142))",
+        }}
+      />
 
       <div className="flex flex-col lg:flex-row items-center gap-10 max-w-7xl w-full relative z-10">
         {/* Left section */}
@@ -60,7 +70,9 @@ const Step5 = ({ onComplete }) => {
 
         {/* Right section: Form */}
         <div className="w-full lg:w-1/2 p-8 rounded-xl myshopifybox">
-          <h2 className="text-xl font-semibold mb-4">Connect your Shipping Account</h2>
+          <h2 className="text-xl font-semibold mb-4">
+            Connect your Shipping Account
+          </h2>
 
           <div className="flex gap-4 mb-6">
             <button
@@ -87,7 +99,9 @@ const Step5 = ({ onComplete }) => {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm mb-1">Enter your Shiproact ID:</label>
+              <label className="block text-sm mb-1">
+                Enter your Shiproact ID:
+              </label>
               <input
                 type="text"
                 name="shiproactId"
