@@ -25,8 +25,6 @@ const Step4 = ({ onComplete }) => {
   const handleLogin = () => {
     window.location.href = fbLoginUrl;
   };
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
