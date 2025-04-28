@@ -18,7 +18,7 @@ const Step4 = ({ onComplete }) => {
   };
 
   const clientId = '1009425994660028'; // Replace with your App ID
-  const redirectUri = 'https://www.profitfirst.co.in/api/auth/facebook/callback'; // Backend endpoint
+  const redirectUri = 'https://profitfirst.co.in/api/auth/facebook/callback'; // Backend endpoint
   const scopes = ['ads_management', 'ads_read', 'business_management'];
   const fbLoginUrl = `https://www.facebook.com/v19.0/dialog/oauth?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(',')}&response_type=code`;
 

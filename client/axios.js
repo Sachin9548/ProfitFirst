@@ -7,7 +7,7 @@ const token = localStorage.getItem("token");
 const axiosInstance = axios.create({
   // baseURL: 'http://localhost:3000/api',
   // baseURL: 'https://profit-first.vercel.app/api',
-  baseURL: 'https://www.profitfirst.co.in/api',
+  baseURL: 'https://profitfirst.co.in/api',
   // headers: token ? { Authorization: `Bearer ${token}` } : {},
 });
 
