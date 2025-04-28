@@ -9,28 +9,28 @@ import Step4 from "../components/Step4";
 import Step5 from "../components/Step5";
 
 const Onboarding = () => {
-  const [loading, setLoading] = useState(true);
-  const [currentStep, setCurrentStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [currentStep, setCurrentStep] = useState(4);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axiosInstance
-      .get("/onboard/step")
-      .then((response) => {
-        const step = response.data.step;
-        if (step === 6) {
-          navigate("/dashboard");
-        } else {
-          setCurrentStep(step);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching onboarding step:", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [navigate]);
+  // useEffect(() => {
+  //   axiosInstance
+  //     .get("/onboard/step")
+  //     .then((response) => {
+  //       const step = response.data.step;
+  //       if (step === 6) {
+  //         navigate("/dashboard");
+  //       } else {
+  //         setCurrentStep(step);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching onboarding step:", error);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // }, [navigate]);
 
   const handleStepComplete = () => {
     const next = currentStep + 1;

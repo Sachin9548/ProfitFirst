@@ -35,11 +35,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/verify-email/:token" element={<VerifyEmail />} />
-        {/* <Route path="/onboarding" element={<Onboarding />} /> */}
-        <Route
+        <Route path="/onboarding" element={<Onboarding />} />
+        {/* <Route
           path="/onboarding"
           element={isAuthenticated ? <Onboarding /> : <Navigate to="/login" replace />}
-          />
+          /> */}
 
         {/* MainDashboard Layout Route with nested children */}
         {/* <Route path="/dashboard" element={isAuthenticated ? <MainDashboard />:  <Navigate to="/login" replace />}> */}

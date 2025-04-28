@@ -1,8 +1,8 @@
 const express = require('express');
-const {metaCridiantial} = require('../controller/admin/metaCridiantial');
+const { metaCredential} = require('../controller/admin/metaCridiantial');
 
 const router = express.Router();
 
-router.post('/meta',metaCridiantial);
+router.post('/meta',metaCredential);
 
 module.exports = router;
