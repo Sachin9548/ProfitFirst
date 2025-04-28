@@ -1,7 +1,7 @@
 const express = require('express');
 const {signupController, varifyemail} = require('../controller/auth/signupController');
-const {loginController} = require('../controller/auth/loginController');
-const {facebookLogin} = require('../controller/auth/facebookLogin');
+const {default: facebookLogin} = require('../controller/auth/facebookLogin');
+const {default: loginController} = require('../controller/auth/loginController');
 const router = express.Router();
 
 router.post('/signup',signupController);

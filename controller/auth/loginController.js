@@ -2,7 +2,7 @@ const User = require("../../model/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const loginController = async (req, res) => {
+export default async function loginController (req, res){
   const { email, password } = req.body;
 
   try {
@@ -28,5 +28,3 @@ const loginController = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
-module.exports = { loginController };

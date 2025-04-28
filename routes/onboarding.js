@@ -8,9 +8,10 @@ router.get('/step',auth,currentStep);
 router.post('/step1',auth,onboardStep1);
 router.post('/step2',auth,onboardStep2);
 
-router.post('/step4',auth,onboardStep4);
-router.post('/step5',auth,onboardStep5);
 router.get('/fetchproduct',auth,fetchproduct);
 router.post('/modifyprice',auth,manufacture);
+
+router.post('/step4',auth,onboardStep4);
+router.post('/step5',auth,onboardStep5);
 
 module.exports = router;
