@@ -15,6 +15,7 @@ import {
   LineChart,
   Line,
 } from "recharts";
+import { FiInfo, FiBarChart2 } from "react-icons/fi"; // icons from react-icons
 
 const Dashboard = () => {
   const getValueBasedStops = (data) => {
@@ -300,13 +301,30 @@ const Dashboard = () => {
     { id: 5, name: "Classic Timer", sales: 15, total: 9000 },
   ];
 
-  const customerPieData = [
-    { name: "New Customers", value: 15 },
-    { name: "Returning Customers", value: 85 },
+  const gradientStops = getValueBasedStops(chartData[selectedMetric]);
+
+  const shipmentStatusData = [
+    { name: "Delivered", value: 45 },
+    { name: "RTO", value: 25 },
+    { name: "Intransit", value: 15 },
+    { name: "Undelivered", value: 10 },
+    { name: "Lost/Damaged", value: 5 },
   ];
 
-  const COLORS = ["#008374", "#2b82f6"];
-  const gradientStops = getValueBasedStops(chartData[selectedMetric]);
+  const prepaidCodData = [
+    { name: "Prepaid", value: 10.49 },
+    { name: "COD", value: 89.51 },
+  ];
+
+  const shipmentColors = [
+    "#B5A4F4", // Delivered (light purple)
+    "#FDA67D", // RTO (peach)
+    "#55D88D", // Intransit (green)
+    "#3256D5", // Undelivered (dark blue)
+    "#F686BC", // Lost/Damaged (pink)
+  ];
+
+  const codColors = ["#B5A4F4", "#55D88D"]; // Prepaid: light purple, COD: green
 
   return (
     <>
@@ -364,14 +382,14 @@ const Dashboard = () => {
                   }}
                   cursor={{ fill: "#2e2e2e", opacity: 0.1 }}
                 />
-                <Bar dataKey="sales" stackId="a" fill="#d2f2d4" />
-                <Bar dataKey="adsSpend" stackId="a" fill="#ccb151" />
-                <Bar dataKey="shipping" stackId="a" fill="#53c68b" />
-                <Bar dataKey="cost" stackId="a" fill="#4f75d6" />
+                <Bar dataKey="sales" stackId="a" fill="#155ff2" />
+                <Bar dataKey="adsSpend" stackId="a" fill="#12e8e5" />
+                <Bar dataKey="shipping" stackId="a" fill="#8b0df2" />
+                <Bar dataKey="cost" stackId="a" fill="#edaf71" />
                 <Bar
                   dataKey="netProfit"
                   stackId="a"
-                  fill="#e59c6b"
+                  fill="#09f16a"
                   radius={[2, 2, 0, 0]}
                 />
               </BarChart>
@@ -380,23 +398,23 @@ const Dashboard = () => {
             {/* Legend */}
             <div className="flex justify-center mt-4 space-x-6 text-sm">
               <div className="flex items-center space-x-1">
-                <span className="w-3 h-3 rounded-sm bg-[#d2f2d4]" />
+                <span className="w-3 h-3 rounded-sm bg-[#155ff2]" />
                 <span>Sales</span>
               </div>
               <div className="flex items-center space-x-1">
-                <span className="w-3 h-3 rounded-sm bg-[#ccb151]" />
+                <span className="w-3 h-3 rounded-sm bg-[#12e8e5]" />
                 <span>Ads Spend</span>
               </div>
               <div className="flex items-center space-x-1">
-                <span className="w-3 h-3 rounded-sm bg-[#53c68b]" />
+                <span className="w-3 h-3 rounded-sm bg-[#8b0df2]" />
                 <span>Shipping Spend</span>
               </div>
               <div className="flex items-center space-x-1">
-                <span className="w-3 h-3 rounded-sm bg-[#4f75d6]" />
+                <span className="w-3 h-3 rounded-sm bg-[#edaf71]" />
                 <span>Cost</span>
               </div>
               <div className="flex items-center space-x-1">
-                <span className="w-3 h-3 rounded-sm bg-[#e59c6b]" />
+                <span className="w-3 h-3 rounded-sm bg-[#09f16a]" />
                 <span>Net Profit</span>
               </div>
             </div>
@@ -408,20 +426,20 @@ const Dashboard = () => {
               {selectedData.month} 2025
             </h3>
             <div className="space-y-3">
-              <div className="bg-[#d2f2d4] text-black p-4 rounded-lg font-medium">
+              <div className="bg-[#155ff2] text-black p-4 rounded-lg font-medium">
                 Sales: {selectedData.sales}
               </div>
-              <div className="bg-[#ccb151] text-black p-4 rounded-lg font-medium">
+              <div className="bg-[#12e8e5] text-black p-4 rounded-lg font-medium">
                 Ad Spend: {selectedData.adsSpend}
               </div>
-              <div className="bg-[#53c68b] text-black p-4 rounded-lg font-medium">
+              <div className="bg-[#8b0df2] text-black p-4 rounded-lg font-medium">
                 Shipping: {selectedData.shipping}
               </div>
-              <div className="bg-[#4f75d6] text-black p-4 rounded-lg font-medium">
+              <div className="bg-[#edaf71] text-black p-4 rounded-lg font-medium">
                 Cost: {selectedData.cost}
               </div>
-              <hr className="border-gray-700" />
-              <div className="bg-[#e59c6b] text-white p-4 rounded-lg font-semibold">
+              <hr className="border-gray-200" />
+              <div className="bg-[#09f16a] text-black p-4 rounded-lg font-semibold">
                 Net Profit: {selectedData.netProfit}
               </div>
             </div>
@@ -446,72 +464,6 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
-        {/* example 1 */}
-        {/* Marketing Chart Section */}
-        <div className="bg-[#161616] rounded-2xl p-6">
-          <div className="mt-6">
-            <div className="flex items-center justify-between mb-2">
-              <div className="space-x-2">
-                {["ROAS", "CPP", "Sales", "Order"].map((metric) => (
-                  <button
-                    key={metric}
-                    onClick={() => setSelectedMetric(metric)}
-                    className={`px-3 py-1 rounded-lg text-sm ${
-                      selectedMetric === metric
-                        ? "bg-[#00B0FF] text-white font-bold border"
-                        : "bg-[#434343] text-white"
-                    }`}
-                  >
-                    {metric}
-                  </button>
-                ))}
-              </div>
-
-              <select className="bg-[#161616] text-sm text-white px-3 py-1 rounded-lg border border-gray-700 hover:cursor-pointer">
-                <option>Last 7 Days</option>
-                <option>This Month</option>
-                <option>This Year</option>
-              </select>
-            </div>
-
-            <div className="h-64 bg-[#161616] rounded-lg p-4 z-1">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={chartData[selectedMetric]}>
-                  <XAxis dataKey="name" stroke="#888" />
-                  <YAxis stroke="#888" />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "#161616",
-                      border: "none",
-                    }}
-                    labelStyle={{ color: "#fff" }}
-                    itemStyle={{ color: "#00B0FF" }}
-                  />
-                  <defs>
-                    <linearGradient
-                      id="lineGradient"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="0%"
-                    >
-                      {gradientStops}
-                    </linearGradient>
-                  </defs>
-                  <Line
-                    type="monotone"
-                    dataKey="value"
-                    stroke="url(#lineGradient)"
-                    strokeWidth={3}
-                    dot={{ fill: "#00B0FF", r: 4 }}
-                    activeDot={{ r: 6 }}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-        </div>
-
         {/* example 2 */}
         {/* Marketing Chart Section */}
         <div className="bg-[#161616] rounded-2xl p-6">
@@ -697,54 +649,10 @@ const Dashboard = () => {
                 </tbody>
               </table>
             </div>
-
-            {/* Donut Chart */}
-            {/* <div className="flex justify-center items-center">
-              <PieChart width={400} height={200}>
-                <Pie
-                  data={customerPieData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={50}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {customerPieData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
-                <Legend
-                  layout="vertical"
-                  verticalAlign="middle"
-                  align="right"
-                  iconSize={10}
-                  formatter={(value) => (
-                    <span className="text-sm text-white">{value}</span>
-                  )}
-                />
-              </PieChart>
-            </div> */}
+            {/* Chart */}
           </div>
         </div>
-
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {OverallData.map((item, index) => (
-            <div
-              key={index}
-              className="bg-[#161616] rounded-lg p-4 shadow-md flex items-center space-x-4 z-1"
-            >
-              <div className={`w-4 h-4 ${item.color}`}></div>
-              <div>
-                <p className="text-gray-400 text-sm ">{item.label}</p>
-                <p className="text-white font-semibold text-lg">{item.value}</p>
-              </div>
-            </div>
-          ))}
-        </div> */}
+        {/* Shipment Status Chart */}
         <div>
           <h2 className="text-2xl font-bold pb-4">Shipping</h2>
           {/* Shiping Cards */}
@@ -755,6 +663,77 @@ const Dashboard = () => {
                 <div className="text-xl font-bold text-white">{value}</div>
               </div>
             ))}
+          </div>
+
+          <div className="flex flex-wrap justify-around gap-6 p-6 mt-6">
+            {/* Overall Shipment Status */}
+            <div className="bg-white rounded-xl shadow-md p-4 w-[450px]">
+              <div className="flex items-center justify-between mb-2">
+                <h2 className="text-black font-semibold text-sm">
+                  Overall Shipment Status
+                </h2>
+                <FiInfo className="text-gray-400 text-lg cursor-pointer" />
+              </div>
+              <PieChart width={400} height={350}>
+                <Pie
+                  data={shipmentStatusData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={50}
+                  outerRadius={90}
+                  dataKey="value"
+                >
+                  {shipmentStatusData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={shipmentColors[index]} />
+                  ))}
+                </Pie>
+                <Legend
+                  layout="horizontal"
+                  verticalAlign="bottom"
+                  align="center"
+                  iconType="circle"
+                  iconSize={12}
+                  formatter={(value) => (
+                    <span className="text-sm text-black">{value}</span>
+                  )}
+                />
+              </PieChart>
+            </div>
+
+            {/* Prepaid vs. COD Orders */}
+            <div className="bg-white rounded-xl shadow-md p-4 w-[450px]">
+              <div className="flex items-center justify-between mb-2">
+                <h2 className="text-black font-semibold text-sm">
+                  Prepaid vs. COD Orders
+                </h2>
+                <FiBarChart2 className="text-purple-400 text-lg cursor-pointer" />
+              </div>
+              <PieChart width={400} height={350}>
+                <Pie
+                  data={prepaidCodData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={50}
+                  outerRadius={90}
+                  label={({ percent }) => `${(percent * 100).toFixed(2)}%`}
+                  dataKey="value"
+                >
+                  {prepaidCodData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={codColors[index]} />
+                  ))}
+                </Pie>
+                <Legend
+                  layout="horizontal"
+                  verticalAlign="bottom"
+                  align="center"
+                  iconType="circle"
+                  iconSize={12}
+                  formatter={(value) => (
+                    <span className="text-sm text-black">{value}</span>
+                  )}
+                />
+              </PieChart>
+            </div>
           </div>
         </div>
       </div>

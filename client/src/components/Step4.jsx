@@ -17,7 +17,7 @@ const Step4 = ({ onComplete }) => {
     setMetaData({ ...MetaData, [e.target.name]: e.target.value });
   };
 
-  const clientId = '1009425994660028'; // Replace with your App ID
+  const clientId = '1230913578610494'; // Replace with your App ID
   const redirectUri = 'https://profitfirst.co.in/api/auth/facebook/callback'; // Backend endpoint
   const scopes = ['ads_management', 'ads_read', 'business_management'];
   const fbLoginUrl = `https://www.facebook.com/v19.0/dialog/oauth?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(',')}&response_type=code`;
@@ -127,11 +127,11 @@ const Step4 = ({ onComplete }) => {
             </div>
 
             <button
-      onClick={handleLogin}
-      style={{ padding: '10px 20px', background: '#4267B2', color: 'white', border: 'none', borderRadius: '5px' }}
-    >
-      Login with Facebook
-    </button>
+                onClick={handleLogin}
+                style={{ padding: '10px 20px', background: '#4267B2', color: 'white', border: 'none', borderRadius: '5px' }}
+              >
+                Login with Facebook
+              </button>
 
             <button
               type="submit"
